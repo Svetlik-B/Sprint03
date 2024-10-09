@@ -1,19 +1,25 @@
-//
-//  ViewController.swift
-//  Counter
-//
-//  Created by Svetlana Bochkareva on 07.10.2024.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    @IBOutlet private weak var label: UILabel!
+    @IBOutlet private weak var textView: UITextView!
+    
+    private(set) var counter: Int = 0
+}
 
-    @IBOutlet weak var label: UILabel!
-    var counter: Int = 0
-    
-    @IBOutlet weak var textView: UITextView!
-    
+extension ViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        label.text = """
+            Значение счётчика:
+            0
+            """
+        textView.text = "История изменений:"
+    }
+}
+
+private extension ViewController {
     @IBAction func increaseCounter(_ sender: UIButton) {
         counter += 1
         updateLabel()
@@ -35,7 +41,7 @@ class ViewController: UIViewController {
         updateLabel()
         textView.text += prefix + "значение сброшено"
     }
-    
+
     var prefix: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -49,13 +55,6 @@ class ViewController: UIViewController {
             Значение счётчика:
             \(counter)
             """
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateLabel()
-        
-        textView.text = "История изменений:"
     }
 }
 
