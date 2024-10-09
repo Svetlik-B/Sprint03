@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Counter
 //
-//  Created by Svetlana Bochkareva on 08.10.2024.
+//  Created by Svetlana Bochkareva on 07.10.2024.
 //
 
 import UIKit
